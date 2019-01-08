@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -36,7 +37,7 @@ namespace DVDScreensaver
                 Task.Run(() => Console.Beep());
                 this.BackColor = Color.FromArgb(rng.Next(0, 255), rng.Next(0, 255), rng.Next(0, 255));
                 button1.BackColor = Color.FromArgb(rng.Next(0, 255), rng.Next(0, 255), rng.Next(0, 255));
-
+                Debug.WriteLine("Hit Right or Left");
             }
 
             if (button1.Bottom >= ClientRectangle.Bottom || button1.Top <= 0)
@@ -45,6 +46,7 @@ namespace DVDScreensaver
                 Task.Run(() => Console.Beep());
                 this.BackColor = Color.FromArgb(rng.Next(0, 255), rng.Next(0, 255), rng.Next(0, 255));
                 button1.BackColor = Color.FromArgb(rng.Next(0, 255), rng.Next(0, 255), rng.Next(0, 255));
+                Debug.WriteLine("Hit Top or Bottom");
 
             }
         }
