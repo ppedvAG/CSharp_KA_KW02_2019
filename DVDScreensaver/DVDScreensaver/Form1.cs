@@ -16,6 +16,10 @@ namespace DVDScreensaver
         public Form1()
         {
             InitializeComponent();
+
+            StartPosition = FormStartPosition.Manual;
+            Left = Properties.Settings.Default.Left;
+            Top = Properties.Settings.Default.Top;
         }
 
         int count = 0;
@@ -50,6 +54,12 @@ namespace DVDScreensaver
 
             }
         }
-  
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Properties.Settings.Default.Left = Left;
+            Properties.Settings.Default.Top = Top;
+            Properties.Settings.Default.Save();
+        }
     }
 }

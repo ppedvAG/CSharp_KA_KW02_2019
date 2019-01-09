@@ -38,11 +38,14 @@ namespace HalloMethoden
         static void Zeige(int zahl1, int zahl2)
         {
             Console.WriteLine($"Zahlen: {zahl1} & {zahl2} ");
+            return;
+            Console.WriteLine("rekjng");
         }
 
         static long GiveMeFive()
         {
             return 5;
+            Console.WriteLine("krejngjk");
         }
 
         static int Verdoppeln(int zahl)
