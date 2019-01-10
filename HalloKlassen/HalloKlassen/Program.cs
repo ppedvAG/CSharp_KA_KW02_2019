@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HalloKlassen
 {
@@ -28,40 +24,73 @@ namespace HalloKlassen
             Console.WriteLine(zahl);
             ÄndereZahl(ref zahl);
             Console.WriteLine(zahl);
-            
+
 
             decimal gehalt;
 
             Kaffee meinKaffee = null; //deklaration
-            meinKaffee = new Kaffee(); //instanzierung
-            ZeigeKaffee(meinKaffee);
-            meinKaffee.Art = "Kaffee mit Milch";
-            meinKaffee.Menge = 180;
-            meinKaffee.HatKoffein = true;
+            meinKaffee = new Kaffee() //instanzierung
+            {
+                Art = "Kaffee mit Milch",
+                Menge = 180,
+                HatKoffein = true
+            };
             meinKaffee.SetTemperatur(55.3);
 
-            Kaffee nochEinKaffee = new Kaffee();
+            Cappuccino nochEinKaffee = new Cappuccino();
             nochEinKaffee.Art = "Cappuccino";
-            nochEinKaffee.Menge = 120;
-            nochEinKaffee.SetTemperatur(70.9);
+            nochEinKaffee.MilchSchaumMenge = 90;
+            nochEinKaffee.Schokoflocken = true;
+            nochEinKaffee.Menge = 30;
             nochEinKaffee.HatKoffein = true;
+            nochEinKaffee.SetTemperatur(70.9);
 
             ZeigeKaffee(meinKaffee);
 
             ZeigeKaffee(nochEinKaffee);
+
+            meinKaffee.Abkühlen();
             nochEinKaffee.Abkühlen();
-            ZeigeKaffee(nochEinKaffee);
+
+            Console.WriteLine(meinKaffee);
 
             Console.WriteLine("Ende");
             Console.ReadLine();
         }
 
-  
+
 
         static void ZeigeKaffee(Kaffee kaf)
         {
-            if (kaf != null )
+            kaf.Abkühlen();
+
+            if (kaf != null)
                 Console.WriteLine($"{kaf.Art} {kaf.Menge}ml {kaf.GetTemperatur()}°C");
+
+            //#0
+            if (kaf is Cappuccino)//typprüfung
+            {
+                Cappuccino cap = (Cappuccino)kaf; //casting
+                Console.WriteLine($"\tMilchSchaumMenge: {cap.MilchSchaumMenge}ml");
+            }
+
+            //#1 boxing
+            Cappuccino capp = kaf as Cappuccino;
+            if (capp != null)
+            {
+                if (capp.Schokoflocken)
+                    Console.WriteLine($"\tmit Schoko");
+                else
+                    Console.WriteLine($"\tohne Schoko");
+            }
+
+            //#2 pattern matching 
+            if (kaf is Cappuccino cappp)
+            {
+             
+                Console.WriteLine($"\tJop, des isn' Cappo {capp.HatKoffein}");
+            }
+
         }
     }
 }
