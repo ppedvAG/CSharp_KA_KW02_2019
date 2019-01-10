@@ -20,6 +20,10 @@ namespace DVDScreensaver
             StartPosition = FormStartPosition.Manual;
             Left = Properties.Settings.Default.Left;
             Top = Properties.Settings.Default.Top;
+
+            Button meB = new Button();
+            meB.BackColor = Color.IndianRed;
+            Controls.Add(meB);
         }
 
         int count = 0;

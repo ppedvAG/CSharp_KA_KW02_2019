@@ -59,24 +59,5 @@ namespace DVDScreensaver.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Europefromspace_DE_DE8051640876_1920x1200 {
-            get {
-                object obj = ResourceManager.GetObject("Europefromspace_DE-DE8051640876_1920x1200", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to DVD Screenaver v0.1.
-        /// </summary>
-        internal static string title {
-            get {
-                return ResourceManager.GetString("title", resourceCulture);
-            }
-        }
     }
 }
